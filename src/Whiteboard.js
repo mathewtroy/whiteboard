@@ -36,8 +36,8 @@ class Whiteboard extends Component {
     clearAll = () => {
       this.ctx.clearRect(0, 0, this.canvas.current.width, 
         this.canvas.current.height);
-      this.undoStack = [];
-      this.redoStack = [];
+      //this.undoStack = [];
+      //this.redoStack = [];
     
     }
   
