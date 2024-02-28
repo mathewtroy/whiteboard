@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/whiteboard/static/css/main.c5621e58.css",
+    "main.js": "/whiteboard/static/js/main.dcc251f0.js",
+    "index.html": "/whiteboard/index.html",
+    "main.c5621e58.css.map": "/whiteboard/static/css/main.c5621e58.css.map",
+    "main.dcc251f0.js.map": "/whiteboard/static/js/main.dcc251f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5621e58.css",
+    "static/js/main.dcc251f0.js"
+  ]
+}
