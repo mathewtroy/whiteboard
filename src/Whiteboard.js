@@ -52,14 +52,25 @@ class Whiteboard extends Component {
 
     draw = (e) => {
       if (!this.state.isDrawing) return;
-      const clientX = e.clientX;
-      const clientY = e.clientY;
-      const rect = e.target.getBoundingClientRect();
-      const { color, size } = this.state;
-      this.ctx.lineWidth = size;
-      this.ctx.strokeStyle = color;
-      this.ctx.lineTo(clientX - rect.left, clientY - rect.top);
-      this.ctx.stroke();
+
+      requestAnimationFrame(() => {
+        const clientX = e.clientX;
+        const clientY = e.clientY;
+        const rect = e.target.getBoundingClientRect();
+        const { color, size } = this.state;
+        this.ctx.lineWidth = size;
+        this.ctx.strokeStyle = color;
+    
+        // Нормализация для плавного рисования
+        const smoothX = (clientX - rect.left + (this.prevX || clientX - rect.left)) / 2;
+        const smoothY = (clientY - rect.top + (this.prevY || clientY - rect.top)) / 2;
+    
+        this.ctx.lineTo(smoothX, smoothY);
+        this.ctx.stroke();
+    
+        this.prevX = clientX - rect.left;
+        this.prevY = clientY - rect.top;
+      });
     }
       
     stopDraw = (e) => {
