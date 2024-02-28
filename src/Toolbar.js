@@ -1,8 +1,15 @@
 // Toolbar.js
 import React, { Component } from 'react';
 
+/**
+ * Toolbar component for the Whiteboard.
+ * It provides controls for changing color, size, 
+ * and tools like eraser and marker.
+ */
 class Toolbar extends Component {
   render() {
+    
+    // Destructuring props for easier access
     const { 
         color, 
         size, 
@@ -19,6 +26,7 @@ class Toolbar extends Component {
 
         <div className="tools">
           
+            {/* Color picker input for selecting drawing color */}
             <input 
                 type="color" 
                 className="button color-picker" 
@@ -26,6 +34,7 @@ class Toolbar extends Component {
                 onChange={onChangeColor}
             />
 
+            {/* Range slider for selecting brush size */}
             <input 
                 type="range" 
                 min="1" 
@@ -35,6 +44,7 @@ class Toolbar extends Component {
                 onChange={onChangeSize}
             />
 
+            {/* Button (represented by an image) to activate the eraser tool */}
             <img 
                 src={`${process.env.PUBLIC_URL}/images/eraser.png`} 
                 alt="Eraser"
@@ -44,6 +54,7 @@ class Toolbar extends Component {
                 height="48"
             />
 
+            {/* Button (represented by an image) to activate the marker tool */}
             <img
                 src={`${process.env.PUBLIC_URL}/images/marker.png`} 
                 alt="Marker"

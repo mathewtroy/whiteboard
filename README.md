@@ -1,15 +1,47 @@
-# Getting Started with Create React App
+# :label: Semester project from the subject Client applications in JavaScript  (KAJ)
+
+**Code**: B0B39KAJ \
+**Name**: Client applications in JavaScript/ Vývoj klientských aplikací v Javascriptu \
+**Faculty**: Faculty of Electrical Engineering/ Fakulta elektrotechnická \
+**Department**: 13139 - Department of Computer Graphics and Interaction/ Katedra počítačové grafiky a interakce \
+
+
+## :label: Assignment
+<details><summary> Show more </summary>
+My app will allow users to draw on the screen using a mouse or touchscreen and save their creations.\
+
+The main functions of the application will be:\
+
+1. Tool Selection: Users will be able to select a drawing tool or an eraser. It will be possible to change the properties of the tool, such as thickness, and color. \
+
+2. Color Selector: Users will be able to select the color to draw. 
+The colors will either be available in the palette or can be selected using code from the HTML color palette.\
+
+3. Saving Drawings: Users will be able to save their drawings as images on their computer.\
+
+4. Undo/Redo: Users will be able to undo the last drawing step or go back to the previous step.\
+
+5. Clear everything from boards: Users will be able to erase the entire drawing and start over.\
+
+6. Using sound effects: when you press the Cancel button, a sound will be played.\
+
+7. The web application is created using React.\
+
+</details>
+
+
+## :label: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## :label:  Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -39,7 +71,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## :label:  Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
@@ -68,3 +100,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## :label: Contacts
+
+**Teacher:** Petr Huřťák <br>
+**Author:** Aleksandr Kross  <br>
+:email: **[If you have questions text me](mailto:krossale@fel.czut.cz)**
