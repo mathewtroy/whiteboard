@@ -1,25 +1,39 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Whiteboard",
+  "name": "Whiteboard App",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "images/64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "images/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "images/eraser.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/marker.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/circle.png",
+      "type": "image/png",
+      "sizes": "48x48"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://mathewtroy.github.io/whiteboard/",
+  "orientation": "any",
+  "description": "Interactive White-Board application for drawing and creativity on both desktop and touch devices.",
   "display": "standalone",
+  "lang": "en",
+  "dir": "ltr",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
