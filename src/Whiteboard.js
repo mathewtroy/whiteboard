@@ -40,20 +40,11 @@ class Whiteboard extends Component {
     }
   
     startDraw = (e) => {
-      let clientX, clientY;
-      if (e.type.includes('mouse')) {
-        clientX = e.nativeEvent.offsetX;
-        clientY = e.nativeEvent.offsetY;
-      } else { 
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-        const rect = e.target.getBoundingClientRect();
-        clientX -= rect.left;
-        clientY -= rect.top;
-      }
-      
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      const rect = e.target.getBoundingClientRect();
       this.ctx.beginPath();
-      this.ctx.moveTo(clientX, clientY);
+      this.ctx.moveTo(clientX - rect.left, clientY - rect.top);
       this.setState({ isDrawing: true });
     }
       
@@ -61,22 +52,13 @@ class Whiteboard extends Component {
 
     draw = (e) => {
       if (!this.state.isDrawing) return;
-      let clientX, clientY;
-      if (e.type.includes('mouse')) {
-        clientX = e.nativeEvent.offsetX;
-        clientY = e.nativeEvent.offsetY;
-      } else { // обработка касания
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-        const rect = e.target.getBoundingClientRect();
-        clientX -= rect.left;
-        clientY -= rect.top;
-      }
-    
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      const rect = e.target.getBoundingClientRect();
       const { color, size } = this.state;
       this.ctx.lineWidth = size;
       this.ctx.strokeStyle = color;
-      this.ctx.lineTo(clientX, clientY);
+      this.ctx.lineTo(clientX - rect.left, clientY - rect.top);
       this.ctx.stroke();
     }
       
@@ -174,13 +156,13 @@ class Whiteboard extends Component {
         />
         <canvas
           ref={this.canvas}
-          onMouseDown={this.startDraw}
-          onMouseMove={this.draw}
-          onMouseUp={this.stopDraw}
-          onMouseOut={this.stopDraw}
-          onTouchStart={this.startDraw}
-          onTouchMove={this.draw}
-          onTouchEnd={this.stopDraw}
+          onPointerDown={this.startDraw}
+          onPointerMove={this.draw}
+          onPointerUp={this.stopDraw}
+          onPointerOut={this.stopDraw}
+          // onTouchStart={this.startDraw}
+          // onTouchMove={this.draw}
+          // onTouchEnd={this.stopDraw}
         />
       </section>
       );
