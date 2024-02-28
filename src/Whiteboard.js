@@ -144,6 +144,12 @@ class Whiteboard extends Component {
       this.setState({ color: '#000000', size: 6 }); 
     }
     
+    disableGestureZoom = (e) => {
+      if (e.touches.length > 1) {
+          e.preventDefault();
+      }
+  }
+  
     
   
     render() {
@@ -171,9 +177,8 @@ class Whiteboard extends Component {
           onPointerMove={this.draw}
           onPointerUp={this.stopDraw}
           onPointerOut={this.stopDraw}
-          // onTouchStart={this.startDraw}
-          // onTouchMove={this.draw}
-          // onTouchEnd={this.stopDraw}
+          onTouchStart={(e) => { this.startDraw(e); this.disableGestureZoom(e); }}
+   
         />
       </section>
       );
