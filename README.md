@@ -5,6 +5,8 @@
 **Faculty**: Faculty of Electrical Engineering/ Fakulta elektrotechnická \
 **Department**: 13139 - Department of Computer Graphics and Interaction/ Katedra počítačové grafiky a interakce 
 
+## :label: Link to website
+[Click here](https://mathewtroy.github.io/whiteboard/)
 
 ## :label: Assignment
 <details><summary> Show more </summary>
