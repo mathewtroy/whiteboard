@@ -1,0 +1,131 @@
+body, html{
+	margin: 0;
+	padding: 0;
+    border: 0;
+    outline: 0;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+    cursor: crosshair;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+  width: 100%; /* Полная ширина */
+  background-color: grey; /* Серый фон */
+  padding: 10px 0; /* Отступ сверху и снизу */
+  box-sizing: border-box; /* Учет padding в общей ширине */
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Расположение вверху */
+  left: 0;
+  z-index: 1000; /* Поверх других элементов */
+  display: flex; /* Использование flexbox для выравнивания */
+  justify-content: space-around; /* Равномерное распределение элементов */
+  align-items: center; /* Вертикальное выравнивание элементов */
+}
+
+.button {
+  background-color: green; /* Green background */
+  height: 48px; /* Match cat image height */
+  border: none; /* Remove border */
+  color: white; /* Text color */
+  padding: 0 15px; /* Padding on the sides */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove text decoration */
+  display: inline-block; /* Allow buttons to sit side by side */
+  font-size: 16px; /* Text size */
+  margin: 4px 2px; /* Margin around buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Стили для инструментов рисования */
+.tools {
+  padding-top: 60px; /* Отступ сверху, чтобы не перекрывалось navbar */
+  display: flex;
+}
+
+#B, #undoBtn, #redoBtn, #saveBtn {
+  width: auto; /* Width of the buttons is automatic, adjust as needed */
+}
+
+
+.size-slider {
+  position: fixed;
+  left: 70%;
+  top: 100px;
+  width: 5%;
+  height: 30px; /* Увеличенная высота для лучшей видимости и удобства использования */
+  order: 2;
+}
+
+.color-picker {
+  background-color: #09718bdf;
+  position: fixed;
+  left: 78%;
+  top: 100px;
+  width: 5%;
+  order: 1;
+}
+
+.marker-icon {
+  background-color: #09718bdf;
+  position: fixed;
+  left: 84%;
+  top: 100px;
+  width: 2%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  order: 3; /* Установите порядок, чтобы маркер шел после ластика */
+}
+
+.marker-icon:hover {
+  transform: scale(1.1);
+}
+
+.eraser-icon {
+  background-color: #09718bdf;
+  position: fixed;
+  left: 90%;
+  top: 100px;
+  width: 2%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  order: 4;
+}
+
+.eraser-icon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.rotating-icon {
+  width: 48px; /* Ширина иконки */
+  height: 48px; /* Высота иконки */
+  animation: rotate 2s linear infinite;
+  top: 20px;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 600px) {
+  .size-slider {
+      width: 30%; /* Увеличенная ширина на маленьких экранах */
+      left: 35%; /* Центрирование ползунка на экране */
+      top: 100px; /* Отступ сверху, чтобы избежать перекрытия с navbar */
+  }
+}
+
