@@ -54,7 +54,7 @@ html::-webkit-scrollbar {
 
 .size-slider {
   position: fixed;
-  left: 70%;
+  left: 60%;
   top: 100px;
   width: 5%;
   height: 30px; /* Увеличенная высота для лучшей видимости и удобства использования */
@@ -64,7 +64,7 @@ html::-webkit-scrollbar {
 .color-picker {
   background-color: #09718bdf;
   position: fixed;
-  left: 78%;
+  left: 70%;
   top: 100px;
   width: 5%;
   order: 1;
@@ -73,7 +73,7 @@ html::-webkit-scrollbar {
 .marker-icon {
   background-color: #09718bdf;
   position: fixed;
-  left: 84%;
+  left: 80%;
   top: 100px;
   width: 2%;
   cursor: pointer;

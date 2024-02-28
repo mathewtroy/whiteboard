@@ -1,7 +1,8 @@
+// Whiteboard.js
 import React, { Component  } from 'react';
 import Toolbar from './Toolbar';
 import ActionControls from './ActionControls';
-import './whiteboard.css'; 
+import './css/whiteboard.css'; 
 
 class Whiteboard extends Component {
     constructor(props) {
@@ -31,34 +32,55 @@ class Whiteboard extends Component {
     }
   
     clearAll = () => {
-      this.ctx.clearRect(0, 0, this.canvas.current.width, this.canvas.current.height);
+      this.ctx.clearRect(0, 0, this.canvas.current.width, 
+        this.canvas.current.height);
       this.undoStack = [];
       this.redoStack = [];
     
     }
   
     startDraw = (e) => {
-      if (e.nativeEvent) {
-        const { offsetX, offsetY } = e.nativeEvent;
-        this.ctx.beginPath();
-        this.ctx.moveTo(offsetX, offsetY);
+      let clientX, clientY;
+      if (e.type.includes('mouse')) {
+        clientX = e.nativeEvent.offsetX;
+        clientY = e.nativeEvent.offsetY;
+      } else { 
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        const rect = e.target.getBoundingClientRect();
+        clientX -= rect.left;
+        clientY -= rect.top;
       }
+      
+      this.ctx.beginPath();
+      this.ctx.moveTo(clientX, clientY);
       this.setState({ isDrawing: true });
     }
       
+
+
     draw = (e) => {
       if (!this.state.isDrawing) return;
-      if (e.nativeEvent) {
-        const { offsetX, offsetY } = e.nativeEvent;
-        const { color, size } = this.state;
-        this.ctx.lineWidth = size;
-        this.ctx.strokeStyle = color;
-        this.ctx.lineTo(offsetX, offsetY);
-        this.ctx.stroke();
+      let clientX, clientY;
+      if (e.type.includes('mouse')) {
+        clientX = e.nativeEvent.offsetX;
+        clientY = e.nativeEvent.offsetY;
+      } else { // обработка касания
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        const rect = e.target.getBoundingClientRect();
+        clientX -= rect.left;
+        clientY -= rect.top;
       }
+    
+      const { color, size } = this.state;
+      this.ctx.lineWidth = size;
+      this.ctx.strokeStyle = color;
+      this.ctx.lineTo(clientX, clientY);
+      this.ctx.stroke();
     }
       
-    stopDraw = () => {
+    stopDraw = (e) => {
       if (this.state.isDrawing) {
         this.ctx.closePath();
         this.setState({ isDrawing: false });
@@ -94,8 +116,11 @@ class Whiteboard extends Component {
       if (state) {
         img.src = state;
         img.onload = () => {
-          this.ctx.clearRect(0, 0, this.canvas.current.width, this.canvas.current.height);
-          this.ctx.drawImage(img, 0, 0, this.canvas.current.width, this.canvas.current.height);
+          this.ctx.clearRect(0, 0, this.canvas.current.width, 
+            this.canvas.current.height);
+
+          this.ctx.drawImage(img, 0, 0, this.canvas.current.width, 
+            this.canvas.current.height);
         };
       } else {
         this.clearAll();
@@ -110,7 +135,8 @@ class Whiteboard extends Component {
     }
     
     saveImage = () => {
-      const image = this.canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream");
+      const image = this.canvas.current.toDataURL("image/png").replace(
+        "image/png", "image/octet-stream");
       const link = document.createElement('a');
       link.download = 'my-drawing.png';
       link.href = image;
@@ -118,11 +144,11 @@ class Whiteboard extends Component {
     }
     
     activateEraser = () => {
-      this.setState({ color: '#FFFFFF' }); // предполагаем, что фон белый
+      this.setState({ color: '#FFFFFF' }); 
     }
 
     activateMarker = () => {
-      this.setState({ color: '#000000', size: 6 }); // Сброс к стандартным значениям
+      this.setState({ color: '#000000', size: 6 }); 
     }
     
     

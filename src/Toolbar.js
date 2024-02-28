@@ -1,3 +1,4 @@
+// Toolbar.js
 import React, { Component } from 'react';
 
 class Toolbar extends Component {
@@ -35,7 +36,7 @@ class Toolbar extends Component {
             />
 
             <img 
-                src={`${process.env.PUBLIC_URL}/eraser.png`} 
+                src={`${process.env.PUBLIC_URL}/images/eraser.png`} 
                 alt="Eraser"
                 className="button eraser-icon "
                 onClick={activateEraser}
@@ -44,10 +45,10 @@ class Toolbar extends Component {
             />
 
             <img
-                src={`${process.env.PUBLIC_URL}/marker.png`} // Иконка маркера
+                src={`${process.env.PUBLIC_URL}/images/marker.png`} 
                 alt="Marker"
                 className="button marker-icon"
-                onClick={activateMarker} // Обработчик событий для маркера
+                onClick={activateMarker} 
                 width="48"
                 height="48"
             />
