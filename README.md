@@ -1,5 +1,13 @@
 # :label: Semester project from the subject Client applications in JavaScript  (KAJ)
 
+![REACT](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![VSCODE](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)
+
+
 **Code**: B0B39KAJ \
 **Name**: Client applications in JavaScript/ Vývoj klientských aplikací v Javascriptu \
 **Faculty**: Faculty of Electrical Engineering/ Fakulta elektrotechnická \
@@ -103,6 +111,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+## :label: Documentation
+[Click here](https://docs.google.com/document/d/1QIp4-ZpqeNqX4QuP1kdH1wBC32eKEUJiVWlgjrH4_kY/)
 
 ## :label: Contacts
 
