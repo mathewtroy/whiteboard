@@ -16,7 +16,9 @@ class Whiteboard extends Component {
       this.state = {
         color: '#000000',   // Current drawing color
         size: 6,            // Current brush size
-        isDrawing: false    // Flag to track drawing status
+        isDrawing: false,   // Flag to track drawing status
+        showSaveForm: false, // Added a new state for displaying the save form
+        filename: '', // Default file name
       };
     }
   
@@ -37,7 +39,6 @@ class Whiteboard extends Component {
       this.ctx = canvas.getContext('2d');
       this.ctx.lineCap = 'round';     // Rounded end of the lines
       this.ctx.lineJoin = 'round';    // Rounded join of the lines
-
       canvas.style.touchAction = 'none';// Disables gesture zooming on touch devices
 
     }
@@ -154,17 +155,57 @@ class Whiteboard extends Component {
     }
     
     /**
-     * Saves the current drawing as an image file.
+     * Toggles the visibility of the save form.
+     * @param {boolean} show - A boolean indicating whether 
+     * to show or hide the save form.
+     */
+    toggleSaveForm = (show) => {
+      this.setState({ showSaveForm: show });
+    }
+
+    /**
+     * Handles the change event for the filename input in the save form.
+     * @param {Object} e - The event object.
+     */
+    handleFilenameChange = (e) => {
+      this.setState({ filename: e.target.value });
+    }
+  
+    /**
+     * Handles the form submission in the save form.
+     * Prevents the default form submission, saves the image with the custom 
+     * filename, and hides the save form after successful submission.
+     * @param {Object} e - The event object.
+     */
+    handleSaveFormSubmit = (e) => {
+      e.preventDefault(); // Предотвратить отправку формы
+      const { filename } = this.state;
+      if (filename) {
+        this.saveImageWithCustomName(filename);
+        this.toggleSaveForm(false); // Скрыть форму после сохранения
+      }
+    }
+
+    /**
+     * Initiates the process of saving the current drawing as an image.
      */
     saveImage = () => {
-      const image = this.canvas.current.toDataURL("image/png").replace(
-        "image/png", "image/octet-stream");
+      this.toggleSaveForm(true); 
+    }
+    
+    /**
+     * Saves the current drawing as an image file with a custom filename.
+     * @param {string} filename - The custom filename provided by the user.
+     */
+    saveImageWithCustomName = (filename) => {
+      const fileNameWithExtension = `${filename}.png`;
+      const image = this.canvas.current.toDataURL("image/png");
       const link = document.createElement('a');
-      link.download = 'my-drawing.png';
+      link.download = fileNameWithExtension;
       link.href = image;
       link.click();
     }
-    
+
     /**
      * Activates the eraser tool by setting the stroke color to white.
      * This assumes the canvas background is white.
@@ -188,7 +229,7 @@ class Whiteboard extends Component {
    * @returns The rendered JSX for the Whiteboard component.
    */
     render() {
-      const { color, size } = this.state;
+      const { color, size, showSaveForm, filename } = this.state;
   
       return (
         <section>
@@ -205,6 +246,11 @@ class Whiteboard extends Component {
           undo={this.undo}
           redo={this.redo}
           saveImage={this.saveImage}
+          showSaveForm={showSaveForm} // Передаем состояние формы в ActionControls
+          filename={filename} // Передаем имя файла в ActionControls
+          toggleSaveForm={this.toggleSaveForm}
+          handleFilenameChange={this.handleFilenameChange}
+          handleSaveFormSubmit={this.handleSaveFormSubmit}
         />
         <canvas
           ref={this.canvas}
