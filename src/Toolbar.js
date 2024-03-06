@@ -1,5 +1,9 @@
 // Toolbar.js
 import React, { Component } from 'react';
+import { EraserCircle } from './components/EraserCircle';
+import { MarkerSolid } from './components/MarkerSolid';
+import { ChooseColor } from './components/ChooseColor';
+
 
 /**
  * Toolbar component for the Whiteboard.
@@ -26,14 +30,6 @@ class Toolbar extends Component {
 
         <div className="tools">
           
-            {/* Color picker input for selecting drawing color */}
-            <input 
-                type="color" 
-                className="button color-picker" 
-                value={color}
-                onChange={onChangeColor}
-            />
-
             {/* Range slider for selecting brush size */}
             <input 
                 type="range" 
@@ -44,25 +40,22 @@ class Toolbar extends Component {
                 onChange={onChangeSize}
             />
 
-            {/* Button (represented by an image) to activate the eraser tool */}
-            <img 
-                src={`${process.env.PUBLIC_URL}/images/eraser.png`} 
-                alt="Eraser"
-                className="button eraser-icon "
-                onClick={activateEraser}
-                width="48"
-                height="48"
-            />
+            {/* Color picker input for selecting drawing color */}
+            <ChooseColor color={color} onChangeColor={onChangeColor} />
 
-            {/* Button (represented by an image) to activate the marker tool */}
-            <img
-                src={`${process.env.PUBLIC_URL}/images/marker.png`} 
-                alt="Marker"
-                className="button marker-icon"
-                onClick={activateMarker} 
-                width="48"
-                height="48"
-            />
+            {/* Button to activate the marker tool */}
+            <button className="button marker-icon" onClick={activateMarker}>
+              <MarkerSolid />
+            </button>
+
+
+            {/* Button to activate the eraser tool */}
+            <button className="button eraser-icon" onClick={activateEraser}>
+              <EraserCircle />
+            </button>
+
+
+
 
         </div>
       </div>

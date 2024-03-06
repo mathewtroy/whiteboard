@@ -1,5 +1,11 @@
 // ActionControls.js
 import React, { Component } from 'react';
+import { ClearAll } from './components/ClearAll';
+import { UndoCircle } from './components/UndoCircle';
+import { RedoCircle } from './components/RedoCircle';
+import { SaveDrawing } from './components/SaveDrawing';
+import SaveForm from './SaveForm';
+
 
 /**
  * ActionControls component for the Whiteboard.
@@ -27,16 +33,16 @@ class ActionControls extends Component {
               alt="Rotating logo" />    
 
             {/* Button to clear the canvas */}
-            <button onClick={clearAll} className="button">Clear</button>
+            <button onClick={clearAll} className="button"><ClearAll /></button>
 
             {/* Button to undo the last action */}
-            <button onClick={undo} className="button">↩️</button>
+            <button onClick={undo} className="button"><UndoCircle /></button>
 
             {/* Button to redo the previously undone action */}
-            <button onClick={redo} className="button">↪️</button>
+            <button onClick={redo} className="button"><RedoCircle /></button>
 
             {/* Button to save the canvas as an image */}
-            <button onClick={() => saveImage()} className="button">Save</button>
+            <button onClick={() => saveImage()} className="button"><SaveDrawing /></button>
 
             {/* Audio element for playing sounds (e.g., on undo action) */}
             <audio id="undoSound" 
@@ -46,27 +52,12 @@ class ActionControls extends Component {
         </div>
 
         {showSaveForm && (
-          <div className="save-form">
-            <form onSubmit={handleSaveFormSubmit}>
-              <input
-                type="text"
-                className="filename-input"
-                value={filename}
-                onChange={handleFilenameChange}
-                placeholder="Use only Latin letters"
-                pattern ="[A-Za-z]+"
-                required 
-                id="save_filename"
-              />
-                    
-              {/* Submit button to save the image with the custom filename */}
-              <button type="submit" className="button">☑️</button>
-
-              {/* Cancel button to hide the save form */}
-              <button onClick={() => toggleSaveForm(false)} className="button">
-              ❌</button>
-            </form>
-          </div>
+          <SaveForm
+            filename={filename}
+            handleFilenameChange={handleFilenameChange}
+            handleSaveFormSubmit={handleSaveFormSubmit}
+            toggleSaveForm={toggleSaveForm}
+          />
         )}
 
       </div>

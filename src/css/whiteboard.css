@@ -32,6 +32,28 @@ html::-webkit-scrollbar {
           align-items: center; 
 }
 
+.tools {
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  margin-top: 60px;
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  position: fixed; 
+  top: 10px; 
+  z-index: 500; 
+}
+
+.save-form {
+  position: fixed; 
+  padding: 10px 0;
+  box-sizing: border-box;
+  top: 60px; 
+  margin-top: 60px;
+  z-index: 500;
+}
+
 .button {
   background-color: green; 
   height: 48px; 
@@ -47,12 +69,6 @@ html::-webkit-scrollbar {
   border-radius: 4px; 
 }
 
-.tools {
-  padding-top: 60px; 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex;
-}
 
 .filename-input {
   background-color: #FAEBD7; 
@@ -64,42 +80,16 @@ html::-webkit-scrollbar {
 }
 
 .size-slider {
-  position: fixed;
-  left: 60%;
-  top: 100px;
-  width: 5%;
-  height: 30px; 
-  -webkit-box-ordinal-group: 3; 
-      -ms-flex-order: 2; 
-          order: 2;
+  background-color: #09718bdf;
 }
 
 .color-picker {
   background-color: #09718bdf;
-  position: fixed;
-  left: 70%;
-  top: 100px;
-  width: 5%;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
 }
 
 .marker-icon {
   background-color: #09718bdf;
-  position: fixed;
-  left: 80%;
-  top: 100px;
-  width: 2%;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  -o-transition: transform 0.2s;
-  transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3; 
 }
 
 .marker-icon:hover {
@@ -110,19 +100,7 @@ html::-webkit-scrollbar {
 
 .eraser-icon {
   background-color: #09718bdf;
-  position: fixed;
-  left: 90%;
-  top: 100px;
-  width: 2%;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  -o-transition: transform 0.2s;
-  transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
 }
 
 .eraser-icon:hover {
@@ -165,10 +143,79 @@ html::-webkit-scrollbar {
   top: 20px;
 }
 
-@media (max-width: 600px) {
-  .size-slider {
-      width: 30%; 
-      left: 35%; 
-      top: 100px; 
+@media only screen and (max-width: 990px) {
+    
+  html{
+      font-size: 90%;
+  }
+ 
+   .header-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  header img {
+      margin-bottom: 18px;
+  }
+
+  .toolbar {
+    height: 35px;
+    padding: 3px;
+    margin: 2px;
+  }
+  
+  .sidebar {
+      margin-top: 18px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  
+  html{
+      font-size: 80%;
+  }
+ 
+   .header-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  header img {
+      margin-bottom: 20px;
+  }
+
+  .toolbar {
+    height: 35px;
+    padding: 3px;
+    margin: 2px;
+  }
+
+  .sidebar {
+      margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  
+  html {
+      font-size: 70%;
+  }
+   
+  .header-container {
+      padding: 20px;
+  }
+
+  header img {
+      width: 120px;
+  }
+
+  .toolbar {
+    height: 35px;
+    padding: 3px;
+    margin: 2px;
+  }
+
+  .sidebar {
+      padding: 10px;
   }
 }
