@@ -6,10 +6,21 @@ body, html{
   -ms-overflow-style: none; 
   scrollbar-width: none;
     cursor: crosshair;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 html::-webkit-scrollbar {
     display: none;
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+canvas {
+  touch-action: manipulation;
 }
 
 .navbar {
